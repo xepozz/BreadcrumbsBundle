@@ -35,6 +35,7 @@ class BreadcrumbsExtension extends AbstractExtension
             new TwigFunction('wo_breadcrumbs', [$this, 'getBreadcrumbs']),
             new TwigFunction('wo_breadcrumbs_exists', [$this, 'hasBreadcrumbs']),
             new TwigFunction('wo_render_breadcrumbs', [$this, 'renderBreadcrumbs'], ['is_safe' => ['html']]),
+            new TwigFunction('wo_render_breadcrumbs_schema', [$this, 'renderBreadcrumbsSchema'], ['is_safe' => ['html']]),
         ];
     }
 
@@ -78,6 +79,21 @@ class BreadcrumbsExtension extends AbstractExtension
     {
         /** @var $helper \Symfony\Component\Templating\Helper\HelperInterface */
         $helper = $this->container->get('white_october_breadcrumbs.helper');
+
+        return $helper->breadcrumbs($options);
+    }
+
+    /**
+     * Renders the breadcrumbs in a list
+     *
+     * @param array $options
+     * @return string
+     */
+    public function renderBreadcrumbsSchema(array $options = []): string
+    {
+        /** @var $helper \Symfony\Component\Templating\Helper\HelperInterface */
+        $helper = $this->container->get('white_october_breadcrumbs.helper');
+        $options = array_merge($options, ['viewTemplate' => '@WhiteOctoberBreadcrumbs/json-ld.html.twig']);
 
         return $helper->breadcrumbs($options);
     }

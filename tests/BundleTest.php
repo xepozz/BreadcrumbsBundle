@@ -38,6 +38,31 @@ class BundleTest extends WebTestCase
             '<ol id="wo-breadcrumbs" class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span itemprop="name">foo</span><meta itemprop="position" content="1" /></li></ol>',
             $breadcrumbsExtension->renderBreadcrumbs()
         );
+        $script = <<<SCRIPT
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement":
+    [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item":
+            {
+                "@id": "",
+                "name": "foo"
+            }
+        }
+    ]
+}
+</script>
+SCRIPT;
+
+        $this->assertSame(
+            $script,
+            $breadcrumbsExtension->renderBreadcrumbsSchema()
+        );
     }
 
     public static function getKernelClass()
