@@ -28,7 +28,7 @@ class TestKernel extends Kernel
     /**
      * @var string
      */
-    private $cachePrefix = '';
+    private $cachePrefix;
 
     public function __construct($cachePrefix)
     {
