@@ -15,6 +15,9 @@ use WhiteOctober\BreadcrumbsBundle\Model\SingleBreadcrumb;
 class BreadcrumbsExtension extends AbstractExtension
 {
     protected $container;
+    /**
+     * @var \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     */
     protected $breadcrumbs;
 
     public function __construct(ContainerInterface $container)
@@ -51,7 +54,7 @@ class BreadcrumbsExtension extends AbstractExtension
      * @param string $namespace
      * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
      */
-    public function getBreadcrumbs($namespace = Breadcrumbs::DEFAULT_NAMESPACE)
+    public function getBreadcrumbs($namespace = Breadcrumbs::DEFAULT_NAMESPACE): Breadcrumbs
     {
         return $this->breadcrumbs->getNamespaceBreadcrumbs($namespace);
     }
@@ -60,7 +63,7 @@ class BreadcrumbsExtension extends AbstractExtension
      * @param string $namespace
      * @return bool
      */
-    public function hasBreadcrumbs($namespace = Breadcrumbs::DEFAULT_NAMESPACE)
+    public function hasBreadcrumbs($namespace = Breadcrumbs::DEFAULT_NAMESPACE): bool
     {
         return $this->breadcrumbs->hasNamespaceBreadcrumbs($namespace);
     }
@@ -71,9 +74,9 @@ class BreadcrumbsExtension extends AbstractExtension
      * @param array $options
      * @return string
      */
-    public function renderBreadcrumbs(array $options = [])
+    public function renderBreadcrumbs(array $options = []): string
     {
-        return $this->container->get("white_october_breadcrumbs.helper")->breadcrumbs($options);
+        return $this->container->get('white_october_breadcrumbs.helper')->breadcrumbs($options);
     }
 
     /**
@@ -83,18 +86,10 @@ class BreadcrumbsExtension extends AbstractExtension
      * @param string $namespace
      * @return bool
      */
-    public function isLastBreadcrumb(SingleBreadcrumb $crumb, $namespace = Breadcrumbs::DEFAULT_NAMESPACE)
+    public function isLastBreadcrumb(SingleBreadcrumb $crumb, $namespace = Breadcrumbs::DEFAULT_NAMESPACE): bool
     {
         $offset = $this->breadcrumbs->count($namespace) - 1;
 
         return $crumb === $this->breadcrumbs->offsetGet($offset, $namespace);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return "breadcrumbs";
     }
 }

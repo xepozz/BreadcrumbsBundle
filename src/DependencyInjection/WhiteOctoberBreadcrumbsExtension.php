@@ -12,15 +12,16 @@ class WhiteOctoberBreadcrumbsExtension extends Extension
     /**
      * Loads our service, accessible as "white_october_breadcrumbs"
      *
-     * @param  array            $configs
-     * @param  ContainerBuilder $container
+     * @param array $configs
+     * @param ContainerBuilder $container
      * @return void
+     * @throws \Exception
      */
     public function load(array $configs, ContainerBuilder $container)
     {
         $this->loadConfiguration($configs, $container);
 
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('breadcrumbs.xml');
     }
 
@@ -30,19 +31,19 @@ class WhiteOctoberBreadcrumbsExtension extends Extension
      * @param array $configs
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
-    protected function loadConfiguration(array $configs, ContainerBuilder $container)
+    protected function loadConfiguration(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        if($config['viewTemplate'] === 'WhiteOctoberBreadcrumbsBundle::breadcrumbs.html.twig') {
+        if ($config['viewTemplate'] === 'WhiteOctoberBreadcrumbsBundle::breadcrumbs.html.twig') {
             trigger_error(
-                'Using viewTemplate "'.$config['viewTemplate'].'"" is deprecated and should be replaced by ' .
+                'Using viewTemplate "' . $config['viewTemplate'] . '"" is deprecated and should be replaced by ' .
                 '"WhiteOctoberBreadcrumbsBundle::microdata.html.twig"',
                 E_USER_DEPRECATED
             );
         }
 
-        $container->setParameter("white_october_breadcrumbs.options", $config);
+        $container->setParameter('white_october_breadcrumbs.options', $config);
     }
 }

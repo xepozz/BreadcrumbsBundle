@@ -12,16 +12,14 @@ class BreadcrumbsHelper extends Helper
      * @var Environment
      */
     protected $templating;
-
     /**
      * @var Breadcrumbs
      */
     protected $breadcrumbs;
-
     /**
      * @var array The default options load from config file
      */
-    protected $options = array();
+    protected $options = [];
 
     /**
      * @param \Twig\Environment $templating
@@ -30,11 +28,14 @@ class BreadcrumbsHelper extends Helper
      */
     public function __construct(Environment $templating, Breadcrumbs $breadcrumbs, array $options)
     {
-        $this->templating  = $templating;
+        $this->templating = $templating;
         $this->breadcrumbs = $breadcrumbs;
-        $this->options = array_merge($options, array(
-            'namespace' => Breadcrumbs::DEFAULT_NAMESPACE, // inject default namespace to options
-        ));
+        $this->options = array_merge(
+            $options,
+            [
+                'namespace' => Breadcrumbs::DEFAULT_NAMESPACE, // inject default namespace to options
+            ]
+        );
     }
 
     /**
@@ -42,18 +43,18 @@ class BreadcrumbsHelper extends Helper
      *
      * @param array $options The user-supplied options from the view
      * @return string A HTML string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
-    public function breadcrumbs(array $options = array())
+    public function breadcrumbs(array $options = []): string
     {
         $options = $this->resolveOptions($options);
 
         // Assign namespace breadcrumbs
-        $options["breadcrumbs"] = $this->breadcrumbs->getNamespaceBreadcrumbs($options['namespace']);
+        $options['breadcrumbs'] = $this->breadcrumbs->getNamespaceBreadcrumbs($options['namespace']);
 
-        return $this->templating->render(
-            $options["viewTemplate"],
-            $options
-        );
+        return $this->templating->render($options['viewTemplate'], $options);
     }
 
     /**
@@ -72,7 +73,7 @@ class BreadcrumbsHelper extends Helper
      * @param array $options The user-supplied options from the view
      * @return array
      */
-    private function resolveOptions(array $options = array())
+    private function resolveOptions(array $options = []): array
     {
         return array_merge($this->options, $options);
     }
