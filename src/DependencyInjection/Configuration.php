@@ -44,7 +44,7 @@ class Configuration implements ConfigurationInterface
                     ->defaultNull()
                 ->end()
                 ->scalarNode('viewTemplate')
-                    ->defaultValue('WhiteOctoberBreadcrumbsBundle::microdata.html.twig')
+                    ->defaultValue('@WhiteOctoberBreadcrumbs/microdata.html.twig')
                 ->end()
             ->end();
 

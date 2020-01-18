@@ -21,6 +21,25 @@ class BundleTest extends WebTestCase
         $this->assertInstanceOf(BreadcrumbsHelper::class, $container->get('white_october_breadcrumbs.helper'));
     }
 
+    public function testRendering(): void
+    {
+        $client = static::createClient();
+
+        $container = $client->getContainer();
+
+        /** @var \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs $service */
+        $service = $container->get(Breadcrumbs::class);
+        $service->addItem('foo');
+
+        /** @var \WhiteOctober\BreadcrumbsBundle\Twig\Extension\BreadcrumbsExtension $breadcrumbsExtension */
+        $breadcrumbsExtension = $container->get('white_october_breadcrumbs.twig');
+
+        $this->assertSame(
+            '<ol id="wo-breadcrumbs" class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span itemprop="name">foo</span><meta itemprop="position" content="1" /></li></ol>',
+            $breadcrumbsExtension->renderBreadcrumbs()
+        );
+    }
+
     public static function getKernelClass()
     {
         return TestKernel::class;

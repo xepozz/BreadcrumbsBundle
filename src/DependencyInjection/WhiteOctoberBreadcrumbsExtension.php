@@ -21,7 +21,7 @@ class WhiteOctoberBreadcrumbsExtension extends Extension
     {
         $this->loadConfiguration($configs, $container);
 
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../../Resources/config'));
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('breadcrumbs.xml');
     }
 
