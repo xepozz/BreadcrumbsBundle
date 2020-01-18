@@ -76,7 +76,10 @@ class BreadcrumbsExtension extends AbstractExtension
      */
     public function renderBreadcrumbs(array $options = []): string
     {
-        return $this->container->get('white_october_breadcrumbs.helper')->breadcrumbs($options);
+        /** @var $helper \Symfony\Component\Templating\Helper\HelperInterface */
+        $helper = $this->container->get('white_october_breadcrumbs.helper');
+
+        return $helper->breadcrumbs($options);
     }
 
     /**
