@@ -1,16 +1,16 @@
 <?php
 
-namespace WhiteOctober\BreadcrumbsBundle\DependencyInjection;
+namespace Xepozz\BreadcrumbsBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class WhiteOctoberBreadcrumbsExtension extends Extension
+class BreadcrumbsExtension extends Extension
 {
     /**
-     * Loads our service, accessible as "white_october_breadcrumbs"
+     * Loads our service, accessible as "breadcrumbs"
      *
      * @param array $configs
      * @param ContainerBuilder $container
@@ -36,6 +36,6 @@ class WhiteOctoberBreadcrumbsExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('white_october_breadcrumbs.options', $config);
+        $container->setParameter('breadcrumbs.options', $config);
     }
 }

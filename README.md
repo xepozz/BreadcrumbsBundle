@@ -13,7 +13,7 @@ Usage
 In your application controller methods:
 
 ```php
-use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
+use Xepozz\BreadcrumbsBundle\Model\Breadcrumbs;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -51,7 +51,7 @@ hierarchical data (e.g. Doctrine Nested-Set).  This example uses categories in
 a product catalog:
 
 ```php
-use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
+use Xepozz\BreadcrumbsBundle\Model\Breadcrumbs;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -75,7 +75,7 @@ passing only the route name with any required parameters, using the `addRouteIte
 and `prependRouteItem()` methods:
 
 ```php
-use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
+use Xepozz\BreadcrumbsBundle\Model\Breadcrumbs;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -111,7 +111,7 @@ The following *default* parameters can be overriden in your `config.yml` or simi
 
 ```yaml
 # config/services.yml
-white_october_breadcrumbs:
+breadcrumbs:
     separator:          '/'
     separatorClass:     'separator'
     listId:             'wo-breadcrumbs'
@@ -120,7 +120,7 @@ white_october_breadcrumbs:
     linkRel:            ''
     locale:             ~ # defaults to null, so the default locale is used
     translation_domain: ~ # defaults to null, so the default domain is used
-    viewTemplate:       '@WhiteOctoberBreadcrumbs/microdata.html.twig'
+    viewTemplate:       '@Breadcrumbs/microdata.html.twig'
 ```
 
 These can also be passed as parameters in the view when rendering the
@@ -136,7 +136,7 @@ To add breadcrumbs to your custom namespace use `addNamespaceItem` / `prependNam
 or `addNamespaceRouteItem` / `prependNamespaceRouteItem` methods respectively, for example:
 
 ```php
-use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
+use Xepozz\BreadcrumbsBundle\Model\Breadcrumbs;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -213,7 +213,7 @@ There are two methods for doing this.
 
 1. You can override the template used by copying the
     `Resources/views/microdata.html.twig` file out of the bundle and placing it
-    into `templates/WhiteOctoberBreadcrumbs/views`, then customising
+    into `templates/Breadcrumbs/views`, then customising
     as you see fit. Check the [Overriding bundle templates][1] documentation section
     for more information.
 
@@ -224,7 +224,7 @@ There are two methods for doing this.
     ```
    
 > **NOTE:** If you want to use the JSON-LD format, there's already an existing template 
-at `@WhiteOctoberBreadcrumbs/json-ld.html.twig`. Just set this template as the value for 
+at `@Breadcrumbs/json-ld.html.twig`. Just set this template as the value for 
 `viewTemplate` either in your Twig function call (see Step 2 above) or in your bundle [configuration](#configuration).
 
 [1]: http://symfony.com/doc/current/book/templating.html#overriding-bundle-templates

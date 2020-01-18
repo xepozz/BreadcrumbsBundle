@@ -1,13 +1,13 @@
 <?php
 
-namespace WhiteOctober\BreadcrumbsBundle\Twig\Extension;
+namespace Xepozz\BreadcrumbsBundle\Twig\Extension;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
-use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
-use WhiteOctober\BreadcrumbsBundle\Model\SingleBreadcrumb;
+use Xepozz\BreadcrumbsBundle\Model\Breadcrumbs;
+use Xepozz\BreadcrumbsBundle\Model\SingleBreadcrumb;
 
 /**
  * Provides an extension for Twig to output breadcrumbs
@@ -16,14 +16,14 @@ class BreadcrumbsExtension extends AbstractExtension
 {
     protected $container;
     /**
-     * @var \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @var \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     protected $breadcrumbs;
 
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
-        $this->breadcrumbs = $container->get('white_october_breadcrumbs');
+        $this->breadcrumbs = $container->get('breadcrumbs');
     }
 
     /**
@@ -78,7 +78,7 @@ class BreadcrumbsExtension extends AbstractExtension
     public function renderBreadcrumbs(array $options = []): string
     {
         /** @var $helper \Symfony\Component\Templating\Helper\HelperInterface */
-        $helper = $this->container->get('white_october_breadcrumbs.helper');
+        $helper = $this->container->get('breadcrumbs.helper');
 
         return $helper->breadcrumbs($options);
     }
@@ -92,8 +92,8 @@ class BreadcrumbsExtension extends AbstractExtension
     public function renderBreadcrumbsSchema(array $options = []): string
     {
         /** @var $helper \Symfony\Component\Templating\Helper\HelperInterface */
-        $helper = $this->container->get('white_october_breadcrumbs.helper');
-        $options = array_merge($options, ['viewTemplate' => '@WhiteOctoberBreadcrumbs/json-ld.html.twig']);
+        $helper = $this->container->get('breadcrumbs.helper');
+        $options = array_merge($options, ['viewTemplate' => '@Breadcrumbs/json-ld.html.twig']);
 
         return $helper->breadcrumbs($options);
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace WhiteOctober\BreadcrumbsBundle\Model;
+namespace Xepozz\BreadcrumbsBundle\Model;
 
 use ArrayAccess;
 use Countable;
@@ -26,7 +26,7 @@ class Breadcrumbs implements Iterator, ArrayAccess, Countable
      * @param string $url
      * @param array $translationParameters
      * @param bool $translate
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     public function addItem($text, $url = '', array $translationParameters = [], $translate = true): Breadcrumbs
     {
@@ -39,7 +39,7 @@ class Breadcrumbs implements Iterator, ArrayAccess, Countable
      * @param string $url
      * @param array $translationParameters
      * @param bool $translate
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     public function addNamespaceItem(
         $namespace,
@@ -59,7 +59,7 @@ class Breadcrumbs implements Iterator, ArrayAccess, Countable
      * @param string $url
      * @param array $translationParameters
      * @param bool $translate
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     public function prependItem($text, $url = '', array $translationParameters = [], $translate = true): Breadcrumbs
     {
@@ -72,7 +72,7 @@ class Breadcrumbs implements Iterator, ArrayAccess, Countable
      * @param string $url
      * @param array $translationParameters
      * @param bool $translate
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     public function prependNamespaceItem(
         $namespace,
@@ -94,7 +94,7 @@ class Breadcrumbs implements Iterator, ArrayAccess, Countable
      * @param int $referenceType
      * @param array $translationParameters
      * @param bool $translate
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     public function addRouteItem(
         $text,
@@ -123,7 +123,7 @@ class Breadcrumbs implements Iterator, ArrayAccess, Countable
      * @param int $referenceType
      * @param array $translationParameters
      * @param bool $translate
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     public function addNamespaceRouteItem(
         $namespace,
@@ -146,7 +146,7 @@ class Breadcrumbs implements Iterator, ArrayAccess, Countable
      * @param int $referenceType
      * @param array $translationParameters
      * @param bool $translate
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     public function prependRouteItem(
         $text,
@@ -175,7 +175,7 @@ class Breadcrumbs implements Iterator, ArrayAccess, Countable
      * @param int $referenceType
      * @param array $translationParameters
      * @param bool $translate
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     public function prependNamespaceRouteItem(
         $namespace,
@@ -197,7 +197,7 @@ class Breadcrumbs implements Iterator, ArrayAccess, Countable
      * @param string $url
      * @param array $translationParameters
      * @param bool $translate
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     public function addObjectArray(
         array $objects,
@@ -223,7 +223,7 @@ class Breadcrumbs implements Iterator, ArrayAccess, Countable
      * @param string $url
      * @param array $translationParameters
      * @param bool $translate
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     public function addNamespaceObjectArray(
         $namespace,
@@ -266,7 +266,7 @@ class Breadcrumbs implements Iterator, ArrayAccess, Countable
      * @param string $parent
      * @param array $translationParameters
      * @param int $firstPosition
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     public function addObjectTree(
         $object,
@@ -295,7 +295,7 @@ class Breadcrumbs implements Iterator, ArrayAccess, Countable
      * @param string $parent
      * @param array $translationParameters
      * @param int $firstPosition
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs
      */
     public function addNamespaceObjectTree(
         $namespace,

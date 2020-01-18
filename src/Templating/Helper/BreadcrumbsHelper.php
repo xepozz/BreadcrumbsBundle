@@ -1,10 +1,10 @@
 <?php
 
-namespace WhiteOctober\BreadcrumbsBundle\Templating\Helper;
+namespace Xepozz\BreadcrumbsBundle\Templating\Helper;
 
 use Symfony\Component\Templating\Helper\Helper;
 use Twig\Environment;
-use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
+use Xepozz\BreadcrumbsBundle\Model\Breadcrumbs;
 
 class BreadcrumbsHelper extends Helper
 {
@@ -23,7 +23,7 @@ class BreadcrumbsHelper extends Helper
 
     /**
      * @param \Twig\Environment $templating
-     * @param \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs $breadcrumbs
+     * @param \Xepozz\BreadcrumbsBundle\Model\Breadcrumbs $breadcrumbs
      * @param array $options The default options load from config file
      */
     public function __construct(Environment $templating, Breadcrumbs $breadcrumbs, array $options)

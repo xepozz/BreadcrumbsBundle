@@ -1,6 +1,6 @@
 <?php
 
-namespace WhiteOctober\BreadcrumbsBundle\Model;
+namespace Xepozz\BreadcrumbsBundle\Model;
 
 class SingleBreadcrumb
 {

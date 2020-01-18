@@ -1,13 +1,13 @@
 <?php
 
-namespace WhiteOctober\BreadcrumbsBundle\Tests;
+namespace Xepozz\BreadcrumbsBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
-use WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle;
+use Xepozz\BreadcrumbsBundle\BreadcrumbsBundle;
 
 /**
  * Class AppKernel
@@ -36,7 +36,7 @@ class TestKernel extends Kernel
         $this->cachePrefix = $cachePrefix;
         $this->addBundle(FrameworkBundle::class);
         $this->addBundle(TwigBundle::class);
-        $this->addBundle(WhiteOctoberBreadcrumbsBundle::class);
+        $this->addBundle(BreadcrumbsBundle::class);
         $this->addConfigFile(__DIR__ . '/config.xml');
     }
 

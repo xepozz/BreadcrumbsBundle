@@ -1,22 +1,12 @@
 {
-    "name": "whiteoctober/breadcrumbs-bundle",
+    "name": "xepozz/breadcrumbs-bundle",
     "type": "symfony-bundle",
     "license": "MIT",
     "description": "A small breadcrumbs bundle for Symfony5",
     "keywords": [
         "breadcrumbs",
+        "symfony 5",
         "symfony"
-    ],
-    "homepage": "https://github.com/whiteoctober/BreadcrumbsBundle",
-    "authors": [
-        {
-            "name": "Rich Sage",
-            "email": "rich.sage@gmail.com"
-        },
-        {
-            "name": "Dmitrii Derepko",
-            "email": "xepozz@list.ru"
-        }
     ],
     "require": {
         "php": ">=7.2",
@@ -32,8 +22,8 @@
     },
     "autoload": {
         "psr-4": {
-            "WhiteOctober\\BreadcrumbsBundle\\": "src",
-            "WhiteOctober\\BreadcrumbsBundle\\Tests\\": "tests"
+            "Xepozz\\BreadcrumbsBundle\\": "src",
+            "Xepozz\\BreadcrumbsBundle\\Tests\\": "tests"
         }
     }
 }

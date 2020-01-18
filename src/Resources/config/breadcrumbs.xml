@@ -6,25 +6,25 @@
     <services>
 
         <!-- Our service, for controllers -->
-        <service id="WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs" class="WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs" public="true">
+        <service id="Xepozz\BreadcrumbsBundle\Model\Breadcrumbs" class="Xepozz\BreadcrumbsBundle\Model\Breadcrumbs" public="true">
             <call method="setRouter">
                 <argument type="service" id="router" />
             </call>
             <tag name="kernel.reset" method="clear" />
         </service>
-        <service id="white_october_breadcrumbs" alias="WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs" public="true">
+        <service id="breadcrumbs" alias="Xepozz\BreadcrumbsBundle\Model\Breadcrumbs" public="true">
         </service>
 
         <!-- Templating helper -->
-        <service id="white_october_breadcrumbs.helper" class="WhiteOctober\BreadcrumbsBundle\Templating\Helper\BreadcrumbsHelper" public="true">
+        <service id="breadcrumbs.helper" class="Xepozz\BreadcrumbsBundle\Templating\Helper\BreadcrumbsHelper" public="true">
             <argument type="service" id="twig" />
-            <argument type="service" id="white_october_breadcrumbs" />
-            <argument>%white_october_breadcrumbs.options%</argument>
+            <argument type="service" id="breadcrumbs" />
+            <argument>%breadcrumbs.options%</argument>
             <tag name="templating.helper" alias="breadcrumbs" />
         </service>
 
         <!-- Twig extension -->
-        <service id="white_october_breadcrumbs.twig" class="WhiteOctober\BreadcrumbsBundle\Twig\Extension\BreadcrumbsExtension" public="true">
+        <service id="breadcrumbs.twig" class="Xepozz\BreadcrumbsBundle\Twig\Extension\BreadcrumbsExtension" public="true">
           <argument type="service" id="service_container" />
           <tag name="twig.extension" />
         </service>
