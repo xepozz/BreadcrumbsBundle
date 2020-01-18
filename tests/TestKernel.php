@@ -38,7 +38,6 @@ class TestKernel extends Kernel
         $this->addBundle(TwigBundle::class);
         $this->addBundle(WhiteOctoberBreadcrumbsBundle::class);
         $this->addConfigFile(__DIR__ . '/config.xml');
-        $this->addConfigFile(__DIR__ . '/../src/Resources/config/breadcrumbs.xml');
     }
 
     public function addBundle($bundleClassName): void
@@ -70,7 +69,6 @@ class TestKernel extends Kernel
                 }
 
                 $container->addObjectResource($this);
-                $container->setParameter('white_october_breadcrumbs.options', []);
             }
         );
     }
