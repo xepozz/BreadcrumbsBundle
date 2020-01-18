@@ -3,6 +3,7 @@
 namespace WhiteOctober\BreadcrumbsBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
 use WhiteOctober\BreadcrumbsBundle\Templating\Helper\BreadcrumbsHelper;
 
 class BundleTest extends WebTestCase
@@ -13,9 +14,10 @@ class BundleTest extends WebTestCase
 
         $container = $client->getContainer();
 
-        // Test if the service exists
-        $this->assertTrue($container->has('white_october_breadcrumbs.helper'));
+        $this->assertTrue($container->has('white_october_breadcrumbs'));
+        $this->assertInstanceOf(Breadcrumbs::class, $container->get('white_october_breadcrumbs'));
 
+        $this->assertTrue($container->has('white_october_breadcrumbs.helper'));
         $this->assertInstanceOf(BreadcrumbsHelper::class, $container->get('white_october_breadcrumbs.helper'));
     }
 

@@ -7,6 +7,7 @@ use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
+use WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle;
 
 /**
  * Class AppKernel
@@ -35,11 +36,12 @@ class TestKernel extends Kernel
         $this->cachePrefix = $cachePrefix;
         $this->addBundle(FrameworkBundle::class);
         $this->addBundle(TwigBundle::class);
+        $this->addBundle(WhiteOctoberBreadcrumbsBundle::class);
         $this->addConfigFile(__DIR__ . '/config.xml');
         $this->addConfigFile(__DIR__ . '/../src/Resources/config/breadcrumbs.xml');
     }
 
-    public function addBundle($bundleClassName)
+    public function addBundle($bundleClassName): void
     {
         $this->bundlesToRegister[] = $bundleClassName;
     }
@@ -76,7 +78,7 @@ class TestKernel extends Kernel
     /**
      * @param string $configFile path to config file
      */
-    public function addConfigFile($configFile)
+    public function addConfigFile($configFile): void
     {
         $this->configFiles[] = $configFile;
     }

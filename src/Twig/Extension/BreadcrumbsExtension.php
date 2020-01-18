@@ -52,9 +52,9 @@ class BreadcrumbsExtension extends AbstractExtension
      * Returns the breadcrumbs object
      *
      * @param string $namespace
-     * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+     * @return array
      */
-    public function getBreadcrumbs($namespace = Breadcrumbs::DEFAULT_NAMESPACE): Breadcrumbs
+    public function getBreadcrumbs($namespace = Breadcrumbs::DEFAULT_NAMESPACE): array
     {
         return $this->breadcrumbs->getNamespaceBreadcrumbs($namespace);
     }
